@@ -1,0 +1,498 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+$preto: #2a2a2a;
+$bege: #febe98;
+$branco: #f1f1f1;
+$verde: #5cf2b1;
+$azul: #87ceeb;
+$roxo: #8e57db;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $preto;
+    font-family: "Lora", serif;
+    color: $branco;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#mouse {
+    display: block;
+    background-color: transparent;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    border-radius: 999px;
+    z-index: -2;
+
+    background: radial-gradient(
+            93% 93% at 8% 128%,
+            rgba(255, 238, 194, 1) 0%,
+            rgba(255, 238, 194, 0.2) 60%,
+            rgba(194, 233, 255, 0) 100%
+        ),
+        radial-gradient(
+            49% 88% at 27% -14%,
+            rgba(93, 227, 236, 0.73) 0%,
+            rgba(93, 227, 236, 0.17) 60%,
+            rgba(93, 227, 236, 0) 100%
+        ),
+        radial-gradient(
+            115% 156% at 90% 89%,
+            rgba(75, 254, 222, 1) 0%,
+            rgba(75, 254, 222, 0) 100%
+        ),
+        linear-gradient(
+            234deg,
+            rgba(69, 74, 187, 1) 25%,
+            rgba(69, 74, 187, 0.77) 35%,
+            rgba(69, 74, 187, 0.4) 50%,
+            rgba(91, 196, 229, 0) 84%
+        ),
+        radial-gradient(
+            119% 119% at 3% 26%,
+            rgba(48, 142, 230, 1) 0%,
+            rgba(48, 158, 230, 0) 74%
+        ),
+        linear-gradient(
+            360deg,
+            rgba(242, 245, 250, 1) 0%,
+            rgba(242, 245, 250, 1) 100%
+        );
+    filter: blur(60px);
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+section {
+    padding: 0 10rem;
+}
+
+#hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+        padding: 0;
+        height: 50vh;
+    }
+}
+
+.absolute {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+}
+
+.bg {
+    z-index: -1;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.top {
+    top: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.blur-2 {
+    filter: blur(2rem);
+}
+
+.right {
+    right: 0;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+#heading {
+    width: 30%;
+
+    h1 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+
+        span {
+            font-weight: bold;
+            color: $bege;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 70%;
+    }
+}
+
+.logo {
+    width: 100%;
+    fill: $bege;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        height: 5px;
+        width: 100%;
+        background-color: $bege;
+        position: absolute;
+        bottom: 1rem;
+        z-index: -1;
+    }
+}
+
+#about {
+    position: relative;
+
+    div {
+        display: flex;
+        position: relative;
+
+        width: 70%;
+        margin: 0 auto;
+        align-items: center;
+
+        h2 {
+            color: $bege;
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+
+        span {
+            text-align: justify;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            border-left: solid 5px $bege;
+            padding: 1rem 1.25rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            @media screen and (max-width: 768px) {
+                border-left: none;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(to right, #00000000, $bege, #00000000);
+            top: 0;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(to right, #00000000, $bege, #00000000);
+            bottom: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0;
+    }
+}
+
+#people {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+
+    @media screen and (max-width: 768px) {
+        padding: 0;
+    }
+}
+
+#carrossel {
+    display: flex;
+    gap: 10px;
+    padding: 50px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+}
+
+#previous,
+#next {
+    position: absolute;
+    color: $preto;
+    font-weight: bold;
+    background-color: $bege;
+    width: 3rem;
+    height: 3rem;
+    z-index: 3;
+    border-radius: 999px;
+
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#previous {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+.item-1 {
+    left: 50%;
+    transform: translateX(-100%);
+    z-index: 1;
+}
+
+.item-2 {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.item-3 {
+    left: 50%;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.item-4 {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.profile {
+    width: 10rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(3px 7px 53px rgba(0, 0, 0, 0.5));
+    border-radius: 15px;
+    background-color: $preto;
+    transition: all 0.5s;
+    position: absolute;
+
+    div {
+        background-color: $bege;
+        width: 100%;
+        height: 10rem;
+        position: relative;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+
+        @media screen and (max-width: 768px) {
+            height: 10rem;
+        }
+
+        img {
+            position: absolute;
+            bottom: 0;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    figcaption {
+        text-align: center;
+        padding: 0.5rem 0;
+
+        h3 {
+            color: $bege;
+
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-wrap: nowrap;
+            gap: 0.5rem;
+
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                height: 3px;
+                width: 100%;
+                background-color: $bege;
+            }
+
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+
+        h5 {
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 10rem;
+    }
+}
+
+.active {
+    width: 15rem;
+    z-index: 2;
+
+    div {
+        background-color: $azul;
+        height: 15rem;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media screen and (max-width: 768px) {
+            height: 15rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 15rem;
+    }
+}
+
+#visao {
+    background-color: $bege;
+    display: flex;
+    height: 40vh;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    color: $preto;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    h2 {
+        font-weight: normal;
+
+        span {
+            font-weight: bold;
+        }
+
+        font-size: 1.125rem; /* 18px */
+        line-height: 1.75rem;
+    }
+
+    p {
+        font-size: 1rem; /* 16px */
+        line-height: 1.5rem;
+    }
+
+    div {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    img {
+        border-radius: 999px;
+        height: 100%;
+
+        @media screen and (max-width: 768px) {
+            width: 50%;
+            height: auto;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        height: unset;
+    }
+}
+
+.w-2 {
+    height: 50% !important;
+}
+
+#valores {
+    padding-top: 3rem;
+    height: 60vh;
+    position: relative;
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+
+        gap: 5rem;
+        text-align: justify;
+
+        img {
+            object-fit: cover;
+            background-color: $preto;
+            border-radius: 25px;
+            border: solid 3px $bege;
+            padding: 0.5rem;
+
+            width: 100%;
+            height: 10rem;
+        }
+        @media screen and (max-width: 768px) {
+            flex-direction: column-reverse;
+
+            gap: 1rem;
+        }
+        font-size: 1rem; /* 16px */
+        line-height: 1.5rem;
+    }
+    @media screen and (max-width: 768px) {
+        padding: 4rem 0 0;
+    }
+}
+
+.left-2 {
+    left: -20%;
+    filter: blur(2rem);
+}
+
+footer {
+    position: relative;
+    height: 10rem;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
